@@ -146,6 +146,7 @@ export default function UploadPage() {
           <input
             id="passcode"
             type="password"
+            autoComplete="new-password"
             value={passcode}
             onChange={(event) => setPasscode(event.target.value)}
             className="mt-2 h-12 w-full border border-white/15 bg-background px-4 text-main outline-none transition focus:border-accent"
