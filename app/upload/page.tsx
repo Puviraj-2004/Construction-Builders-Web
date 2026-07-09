@@ -5,7 +5,6 @@ import Image from "next/image";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { brandData } from "@/data/data";
 import { serviceItems } from "@/data/services";
-import { appConfig } from "@/lib/config";
 
 type UploadStatus = {
   type: "idle" | "success" | "error" | "loading";
@@ -21,8 +20,6 @@ export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([]);
   const [authStatus, setAuthStatus] = useState<UploadStatus>({ type: "idle", message: "" });
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>({ type: "idle", message: "" });
-
-  const workerApiUrl = appConfig.galleryWorkerApiUrl;
 
   useEffect(() => {
     setIsUnlocked(sessionStorage.getItem("asr-upload-unlocked") === "true");
@@ -85,11 +82,6 @@ export default function UploadPage() {
   async function handleUpload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!workerApiUrl) {
-      setUploadStatus({ type: "error", message: "Worker API URL is not configured." });
-      return;
-    }
-
     if (files.length === 0) {
       setUploadStatus({ type: "error", message: "Please select at least one image." });
       return;
@@ -101,7 +93,7 @@ export default function UploadPage() {
 
     setUploadStatus({ type: "loading", message: "Uploading images..." });
 
-    const response = await fetch(`${workerApiUrl.replace(/\/$/, "")}/upload`, {
+    const response = await fetch("/api/upload", {
       method: "POST",
       body: formData
     });

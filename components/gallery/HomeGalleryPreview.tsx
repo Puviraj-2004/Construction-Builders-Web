@@ -3,7 +3,6 @@
 import { ImageOff } from "lucide-react";
 import { useEffect, useState } from "react";
 import { serviceItems } from "@/data/services";
-import { appConfig } from "@/lib/config";
 
 type GalleryImage = {
   key: string;
@@ -27,20 +26,11 @@ export function HomeGalleryPreview() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const workerApiUrl = appConfig.galleryWorkerApiUrl;
-
-    if (!workerApiUrl) {
-      setIsLoading(false);
-      return;
-    }
-
-    const baseUrl = workerApiUrl.replace(/\/$/, "");
-
     async function loadImages() {
       try {
         const responses = await Promise.all(
           serviceItems.map(async (service) => {
-            const response = await fetch(`${baseUrl}/gallery/${service.slug}`);
+            const response = await fetch(`/api/gallery/${service.slug}`);
 
             if (!response.ok) {
               return {

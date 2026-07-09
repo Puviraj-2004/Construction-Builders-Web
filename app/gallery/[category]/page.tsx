@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { brandData } from "@/data/data";
 import { serviceItems } from "@/data/services";
-import { appConfig } from "@/lib/config";
+import { getGalleryWorkerApiUrl } from "@/lib/gallery-api";
 
 type GalleryImage = {
   key: string;
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: GalleryPageProps) {
 }
 
 async function getGalleryImages(category: string) {
-  const workerApiUrl = appConfig.galleryWorkerApiUrl;
+  const workerApiUrl = getGalleryWorkerApiUrl();
 
   if (!workerApiUrl) {
     return [];
