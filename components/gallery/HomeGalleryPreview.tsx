@@ -3,6 +3,7 @@
 import { ImageOff } from "lucide-react";
 import { useEffect, useState } from "react";
 import { serviceItems } from "@/data/services";
+import { appConfig } from "@/lib/config";
 
 type GalleryImage = {
   key: string;
@@ -26,7 +27,7 @@ export function HomeGalleryPreview() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const workerApiUrl = process.env.NEXT_PUBLIC_WORKER_API_URL;
+    const workerApiUrl = appConfig.galleryWorkerApiUrl;
 
     if (!workerApiUrl) {
       setIsLoading(false);

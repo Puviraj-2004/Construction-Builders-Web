@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { brandData } from "@/data/data";
 import { serviceItems } from "@/data/services";
+import { appConfig } from "@/lib/config";
 
 type UploadStatus = {
   type: "idle" | "success" | "error" | "loading";
@@ -21,7 +22,7 @@ export default function UploadPage() {
   const [authStatus, setAuthStatus] = useState<UploadStatus>({ type: "idle", message: "" });
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>({ type: "idle", message: "" });
 
-  const workerApiUrl = process.env.NEXT_PUBLIC_WORKER_API_URL;
+  const workerApiUrl = appConfig.galleryWorkerApiUrl;
 
   useEffect(() => {
     setIsUnlocked(sessionStorage.getItem("asr-upload-unlocked") === "true");

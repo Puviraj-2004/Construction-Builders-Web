@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { brandData } from "@/data/data";
 import { serviceItems } from "@/data/services";
+import { appConfig } from "@/lib/config";
 
 type GalleryImage = {
   key: string;
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: GalleryPageProps) {
 }
 
 async function getGalleryImages(category: string) {
-  const workerApiUrl = process.env.NEXT_PUBLIC_WORKER_API_URL;
+  const workerApiUrl = appConfig.galleryWorkerApiUrl;
 
   if (!workerApiUrl) {
     return [];
