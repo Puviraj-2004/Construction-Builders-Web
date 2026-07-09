@@ -1,0 +1,15 @@
+:root {
+  --color-primary-black: 11 11 11;
+  --color-charcoal-black: 26 26 26;
+  --color-luxury-gold: 212 175 55;
+  --color-warm-cream: 248 243 231;
+  --color-pure-white: 255 255 255;
+  --color-soft-grey: 189 189 189;
+
+  --color-background: var(--color-primary-black);
+  --color-card: var(--color-charcoal-black);
+  --color-accent: var(--color-luxury-gold);
+  --color-light-section: var(--color-warm-cream);
+  --color-main-text: var(--color-pure-white);
+  --color-sub-text: var(--color-soft-grey);
+}

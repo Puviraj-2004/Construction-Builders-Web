@@ -1,0 +1,61 @@
+@import "../styles/theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: rgb(var(--color-background));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: rgb(var(--color-main-text));
+  background: rgb(var(--color-background));
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+::selection {
+  color: rgb(var(--color-primary-black));
+  background: rgb(var(--color-accent));
+}
+
+.hero-image {
+  background-image:
+    linear-gradient(90deg, rgb(var(--color-primary-black) / 0.92), rgb(var(--color-primary-black) / 0.62) 45%, rgb(var(--color-primary-black) / 0.2)),
+    url("/images/HomeBanner.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.project-tower {
+  background-image:
+    linear-gradient(180deg, rgb(var(--color-primary-black) / 0.08), rgb(var(--color-primary-black) / 0.72)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82");
+}
+
+.project-residence {
+  background-image:
+    linear-gradient(180deg, rgb(var(--color-primary-black) / 0.08), rgb(var(--color-primary-black) / 0.72)),
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=82");
+}
+
+.project-interior {
+  background-image:
+    linear-gradient(180deg, rgb(var(--color-primary-black) / 0.08), rgb(var(--color-primary-black) / 0.72)),
+    url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82");
+}
+
+.grain {
+  background-image: radial-gradient(rgb(var(--color-primary-black) / 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
