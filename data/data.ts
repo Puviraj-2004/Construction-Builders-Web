@@ -1,13 +1,13 @@
 export const brandData = {
-  name: "ASR Builders",
+  name: "SR Builders",
   tagline: "Premium Construction Company",
   description:
-    "ASR Builders delivers refined residential, commercial, and turnkey construction with disciplined project control and elevated craft.",
+    "SR Builders delivers refined residential, commercial, and turnkey construction with disciplined project control and elevated craft.",
   footerDescription:
     "Premium residential, commercial, and turnkey construction with disciplined planning, refined finishes, and accountable project delivery.",
   logo: {
     src: "/Logo.png",
-    alt: "ASR Builders logo"
+    alt: "SR Builders logo"
   }
 };
 
@@ -17,8 +17,8 @@ export const contactData = {
     href: "tel:+442000000000"
   },
   email: {
-    label: "info@asrbuilders.com",
-    href: "mailto:info@asrbuilders.com"
+    label: "info@srbuilders.com",
+    href: "mailto:info@srbuilders.com"
   },
   address: {
     label: "London, United Kingdom",

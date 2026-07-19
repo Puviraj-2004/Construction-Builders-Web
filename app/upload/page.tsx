@@ -22,7 +22,7 @@ export default function UploadPage() {
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>({ type: "idle", message: "" });
 
   useEffect(() => {
-    setIsUnlocked(sessionStorage.getItem("asr-upload-unlocked") === "true");
+    setIsUnlocked(sessionStorage.getItem("sr-upload-unlocked") === "true");
   }, []);
 
   const previews = useMemo(
@@ -58,7 +58,7 @@ export default function UploadPage() {
       return;
     }
 
-    sessionStorage.setItem("asr-upload-unlocked", "true");
+    sessionStorage.setItem("sr-upload-unlocked", "true");
     setIsUnlocked(true);
     setAuthStatus({ type: "success", message: "" });
   }
@@ -178,7 +178,7 @@ export default function UploadPage() {
           <button
             type="button"
             onClick={() => {
-              sessionStorage.removeItem("asr-upload-unlocked");
+              sessionStorage.removeItem("sr-upload-unlocked");
               setIsUnlocked(false);
               setPasscode("");
             }}
