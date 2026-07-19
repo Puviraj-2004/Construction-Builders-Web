@@ -88,21 +88,9 @@ export default function Home() {
 
           <motion.div
             variants={fadeUp}
-            className="self-end border border-white/18 bg-card/75 p-5 shadow-soft backdrop-blur-md"
+            className="self-end border border-white/18 bg-card/75 p-6 shadow-soft backdrop-blur-md"
           >
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                ["18+", "Years"],
-                ["220+", "Projects"],
-                ["96%", "On-Time"]
-              ].map(([value, label]) => (
-                <div key={label} className="border border-white/12 bg-white/8 p-4">
-                  <p className="font-display text-4xl font-semibold text-accent">{value}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/60">{label}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 border-t border-white/12 pt-5 text-sm leading-6 text-white/75">
+            <p className="text-sm leading-6 text-white/75">
               Built for clients who expect premium presentation, practical communication,
               and dependable delivery.
             </p>

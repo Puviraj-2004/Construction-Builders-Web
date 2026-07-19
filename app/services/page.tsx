@@ -7,7 +7,7 @@ import { serviceItems } from "@/data/services";
 export const metadata = {
   title: `Services | ${brandData.name}`,
   description:
-    "Explore ASR Builders construction services including residential, commercial, renovation, painting, electrical, and plumbing."
+    "Explore SR Builders construction services including residential, commercial, renovation, painting, electrical, and plumbing."
 };
 
 export default function ServicesPage() {

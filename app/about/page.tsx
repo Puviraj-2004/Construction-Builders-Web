@@ -2,13 +2,13 @@ import { ArrowRight, Check, ShieldCheck, Sparkles, Trophy } from "lucide-react";
 import Image from "next/image";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { aboutHighlights, aboutProcess, aboutStats, aboutValues } from "@/data/about";
+import { aboutHighlights, aboutProcess, aboutValues } from "@/data/about";
 import { brandData, socialLinks } from "@/data/data";
 
 export const metadata = {
   title: `About | ${brandData.name}`,
   description:
-    "Learn about ASR Builders, a premium construction company focused on refined workmanship, clear project control, and dependable delivery."
+    "Learn about SR Builders, a premium construction company focused on refined workmanship, clear project control, and dependable delivery."
 };
 
 export default function AboutPage() {
@@ -57,8 +57,8 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-light px-5 py-16 text-primary sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.26em] text-accent">Who we are</p>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
               A construction partner for clients who value order as much as outcome.
@@ -75,17 +75,6 @@ export default function AboutPage() {
               right: careful preparation, skilled workmanship, clear communication, and
               accountable delivery.
             </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            {aboutStats.map((stat) => (
-              <div key={stat.label} className="border border-primary/10 bg-white p-6 shadow-sm">
-                <p className="font-display text-5xl font-semibold text-accent">{stat.value}</p>
-                <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-primary/60">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

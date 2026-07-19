@@ -35,16 +35,12 @@ export const navigationItems = [
     href: "/about"
   },
   {
-    label: "Gallery",
-    href: "/gallery",
-    children: galleryItems
-  },
-  {
     label: "Services",
     href: "/services"
   },
   {
-    label: "Contact",
-    href: "/#contact"
+    label: "Gallery",
+    href: "/gallery",
+    children: galleryItems
   }
 ];

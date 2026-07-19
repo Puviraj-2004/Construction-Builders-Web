@@ -1,18 +1,3 @@
-export const aboutStats = [
-  {
-    value: "18+",
-    label: "Years of Craft"
-  },
-  {
-    value: "220+",
-    label: "Completed Projects"
-  },
-  {
-    value: "96%",
-    label: "On-Time Delivery"
-  }
-];
-
 export const aboutValues = [
   {
     title: "Clarity Before Work Begins",

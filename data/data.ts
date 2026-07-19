@@ -13,12 +13,12 @@ export const brandData = {
 
 export const contactData = {
   phone: {
-    label: "+44 20 0000 0000",
-    href: "tel:+442000000000"
+    label: "+44 7393 979129",
+    href: "tel:+447393979129"
   },
   email: {
-    label: "info@srbuilders.com",
-    href: "mailto:info@srbuilders.com"
+    label: "srbuilders1515@gmail.com",
+    href: "mailto:srbuilders1515@gmail.com"
   },
   address: {
     label: "London, United Kingdom",
@@ -29,32 +29,21 @@ export const contactData = {
 export const socialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/442000000000"
+    href: "https://wa.me/447393979129"
   }
 ];
 
 export const contactSocialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/442000000000"
+    href: "https://wa.me/447393979129"
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/"
+    href: "https://www.facebook.com/srbuilderslondon"
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/"
-  }
-];
-
-export const legalLinks = [
-  {
-    label: "Privacy",
-    href: "/#contact"
-  },
-  {
-    label: "Terms",
-    href: "/#contact"
+    href: "https://www.instagram.com/sr_builders_london/"
   }
 ];

@@ -3,14 +3,24 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { brandData } from "@/data/data";
 import { navigationItems } from "@/data/navigation";
 
 export function Navbar() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isMobileGalleryOpen, setIsMobileGalleryOpen] = useState(false);
+
+  function isActive(href: string) {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
     <header className="absolute left-0 right-0 top-0 z-50">
@@ -45,7 +55,11 @@ export function Navbar() {
                 onMouseLeave={() => setIsGalleryOpen(false)}
               >
                 <a
-                  className="inline-flex items-center gap-1.5 py-3 transition hover:text-white"
+                  className={`inline-flex items-center gap-1.5 border-b-2 py-3 transition hover:text-white ${
+                    isActive(item.href)
+                      ? "border-accent text-accent"
+                      : "border-transparent text-white/80"
+                  }`}
                   href={item.href}
                   aria-haspopup="menu"
                   aria-expanded={isGalleryOpen}
@@ -67,7 +81,9 @@ export function Navbar() {
                         <a
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-3 text-sm text-sub transition hover:bg-accent hover:text-primary"
+                          className={`block px-4 py-3 text-sm transition hover:bg-accent hover:text-primary ${
+                            isActive(child.href) ? "bg-accent text-primary" : "text-sub"
+                          }`}
                           role="menuitem"
                         >
                           {child.label}
@@ -78,7 +94,15 @@ export function Navbar() {
                 </AnimatePresence>
               </div>
             ) : (
-              <a key={item.label} className="transition hover:text-white" href={item.href}>
+              <a
+                key={item.label}
+                className={`border-b-2 py-3 transition hover:text-white ${
+                  isActive(item.href)
+                    ? "border-accent text-accent"
+                    : "border-transparent text-white/80"
+                }`}
+                href={item.href}
+              >
                 {item.label}
               </a>
             )
@@ -90,7 +114,7 @@ export function Navbar() {
             href="/#contact"
             className="inline-flex h-11 items-center justify-center border border-accent bg-accent px-4 text-sm font-semibold text-primary transition hover:bg-white"
           >
-            Start Project
+            Contact
           </a>
         </div>
 
@@ -123,7 +147,9 @@ export function Navbar() {
                   <div key={item.label} className="border-b border-white/10 py-2">
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between px-3 py-3 text-left font-semibold text-white"
+                      className={`flex w-full items-center justify-between px-3 py-3 text-left font-semibold ${
+                        isActive(item.href) ? "text-accent" : "text-white"
+                      }`}
                       aria-expanded={isMobileGalleryOpen}
                       aria-controls="mobile-gallery-menu"
                       onClick={() => setIsMobileGalleryOpen((open) => !open)}
@@ -147,7 +173,9 @@ export function Navbar() {
                           <div className="grid gap-1 pb-2 pl-5">
                             <a
                               href={item.href}
-                              className="px-3 py-2 text-sm font-semibold text-accent transition hover:text-white"
+                              className={`px-3 py-2 text-sm font-semibold transition hover:text-white ${
+                                pathname === item.href ? "text-accent" : "text-sub"
+                              }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
                               View Gallery
@@ -156,7 +184,9 @@ export function Navbar() {
                               <a
                                 key={child.label}
                                 href={child.href}
-                                className="px-3 py-2 text-sm text-sub transition hover:text-accent"
+                                className={`px-3 py-2 text-sm transition hover:text-accent ${
+                                  isActive(child.href) ? "text-accent" : "text-sub"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {child.label}
@@ -171,7 +201,9 @@ export function Navbar() {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="border-b border-white/10 px-3 py-4 font-semibold text-white transition last:border-b-0 hover:text-accent"
+                    className={`border-b border-white/10 px-3 py-4 font-semibold transition last:border-b-0 hover:text-accent ${
+                      isActive(item.href) ? "text-accent" : "text-white"
+                    }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -183,7 +215,7 @@ export function Navbar() {
                 className="mt-3 inline-flex h-12 items-center justify-center bg-accent px-4 font-semibold text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Start Project
+                Contact
               </a>
             </div>
           </motion.div>
