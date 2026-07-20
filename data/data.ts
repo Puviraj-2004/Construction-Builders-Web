@@ -6,7 +6,7 @@ export const brandData = {
   footerDescription:
     "Premium residential, commercial, and turnkey construction with disciplined planning, refined finishes, and accountable project delivery.",
   logo: {
-    src: "/Logo.webp",
+    src: "/Logo.png",
     alt: "SR Builders logo"
   }
 };

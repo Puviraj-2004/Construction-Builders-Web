@@ -12,6 +12,7 @@ import {
   Plug,
   Wrench
 } from "lucide-react";
+import Image from "next/image";
 import { HomeGalleryPreview } from "@/components/gallery/HomeGalleryPreview";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -45,7 +46,8 @@ const contactIcons = {
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-main">
-      <section className="hero-image relative min-h-[92vh] text-white">
+      <section className="relative min-h-[92vh] overflow-hidden bg-background text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.16),transparent_34%),linear-gradient(135deg,rgba(11,11,11,1),rgba(26,26,26,0.92))]" />
         <Navbar />
 
         <motion.div
@@ -53,9 +55,21 @@ export default function Home() {
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-36 sm:px-8 lg:grid-cols-[1.08fr_0.72fr] lg:pb-24 lg:pt-44"
+          className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-36 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:pb-24 lg:pt-40"
         >
           <div className="max-w-4xl">
+            <motion.div variants={fadeUp} className="mb-8 flex items-center gap-4">
+              <span className="relative h-24 w-36 sm:h-28 sm:w-44">
+                <Image
+                  src={brandData.logo.src}
+                  alt={brandData.logo.alt}
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="176px"
+                />
+              </span>
+            </motion.div>
             <motion.p variants={fadeUp} className="mb-5 text-sm font-semibold uppercase tracking-[0.28em] text-accent">
               Premium construction company
             </motion.p>
@@ -88,12 +102,25 @@ export default function Home() {
 
           <motion.div
             variants={fadeUp}
-            className="self-end border border-white/18 bg-card/75 p-6 shadow-soft backdrop-blur-md"
+            className="relative min-h-[460px] overflow-hidden border border-accent/25 bg-card shadow-soft sm:min-h-[560px] lg:min-h-[640px]"
           >
-            <p className="text-sm leading-6 text-white/75">
-              Built for clients who expect premium presentation, practical communication,
-              and dependable delivery.
-            </p>
+            <Image
+              src="/images/client/home-project-exterior.jpg"
+              alt="Finished residential exterior project by SR Builders"
+              fill
+              className="object-cover"
+              priority
+              sizes="(min-width: 1024px) 560px, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/78 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-accent">
+                Recent residential work
+              </p>
+              <p className="mt-2 max-w-md text-sm leading-6 text-white/78">
+                A completed exterior finish from a London residential renovation.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </section>
