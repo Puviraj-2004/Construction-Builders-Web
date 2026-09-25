@@ -17,7 +17,24 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: `${brandData.name} | ${brandData.tagline}`,
-  description: brandData.description
+  description: brandData.description,
+
+  openGraph: {
+    title: `${brandData.name} | ${brandData.tagline}`,
+    description: brandData.description,
+    url: "https://srbuilders.london/",
+    siteName: brandData.name,
+    images: [
+      {
+        url: "https://srbuilders.london/images/HomeBanner.png",
+        width: 1200,
+        height: 630,
+        alt: `${brandData.name} - ${brandData.tagline}`,
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
