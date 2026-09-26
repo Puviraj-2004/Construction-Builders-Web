@@ -26,9 +26,10 @@ export const metadata: Metadata = {
     siteName: brandData.name,
     images: [
       {
-        url: "https://srbuilders.london/images/HomeBanner.png",
+        url: "https://srbuilders.london/images/social-preview.jpg",
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: `${brandData.name} - ${brandData.tagline}`,
       },
     ],
