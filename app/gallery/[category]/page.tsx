@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: GalleryPageProps) {
 }
 
 async function getGalleryImages(category: string) {
-  const workerApiUrl = getGalleryWorkerApiUrl();
+  const workerApiUrl = await getGalleryWorkerApiUrl();
 
   if (!workerApiUrl) {
     return [];

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getGalleryWorkerApiUrl } from "@/lib/gallery-api";
 
 export async function POST(request: Request) {
-  const workerApiUrl = getGalleryWorkerApiUrl();
+  const workerApiUrl = await getGalleryWorkerApiUrl();
 
   if (!workerApiUrl) {
     return NextResponse.json(

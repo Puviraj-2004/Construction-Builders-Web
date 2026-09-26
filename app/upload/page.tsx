@@ -137,9 +137,20 @@ export default function UploadPage() {
             Passcode
           </label>
           <input
+            type="text"
+            name="username"
+            autoComplete="username"
+            value="sr-builders-admin"
+            readOnly
+            className="sr-only"
+            tabIndex={-1}
+            aria-hidden="true"
+          />
+          <input
             id="passcode"
+            name="password"
             type="password"
-            autoComplete="new-password"
+            autoComplete="current-password"
             value={passcode}
             onChange={(event) => setPasscode(event.target.value)}
             className="mt-2 h-12 w-full border border-white/15 bg-background px-4 text-main outline-none transition focus:border-accent"

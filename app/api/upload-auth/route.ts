@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+import { getRuntimeEnv } from "@/lib/runtime-env";
 
 export async function POST(request: Request) {
   const { passcode } = await request.json().catch(() => ({ passcode: "" }));
-  const expectedPasscode = process.env.UPLOAD_PASSCODE;
+  const expectedPasscode = await getRuntimeEnv("UPLOAD_PASSCODE");
 
   if (!expectedPasscode) {
     return NextResponse.json(

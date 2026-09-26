@@ -9,7 +9,7 @@ type GalleryRouteProps = {
 
 export async function GET(_request: Request, { params }: GalleryRouteProps) {
   const { category } = await params;
-  const workerApiUrl = getGalleryWorkerApiUrl();
+  const workerApiUrl = await getGalleryWorkerApiUrl();
 
   if (!workerApiUrl) {
     return NextResponse.json(
